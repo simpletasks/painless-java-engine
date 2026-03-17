@@ -1,0 +1,11 @@
+{
+  "status": "READY",
+  "resolution": "AUTO",
+  "meta": {
+    "timestamp": "2024-01-15T10:15:30Z"
+  },
+  "some": {
+    "id": "obj-123",
+    "resolved": false
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "documentId": "doc-1",
+  "source": {
+    "system": "crawler",
+    "domain": "example.com",
+    "ingestionType": "incremental"
+  },
+  "title": "Minimal OpenSearch document",
+  "url": "https://example.com/article",
+  "contentType": "article",
+  "language": "en",
+  "publishedAt": "2026-03-10T09:15:00Z",
+  "crawledAt": "2026-03-16T08:05:00Z",
+  "metrics": {
+    "wordCount": 100,
+    "popularityScore": 10,
+    "qualityScore": 0.5
+  },
+  "flags": {
+    "isActive": true,
+    "isPublic": true,
+    "isDeleted": false
+  },
+  "indexing": {
+    "indexName": "web-documents-v1",
+    "pipeline": "default",
+    "indexedAt": "2026-03-16T08:06:10Z",
+    "version": 1
+  }
+}

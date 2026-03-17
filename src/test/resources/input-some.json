@@ -1,0 +1,83 @@
+{
+  "documentId" : "doc-2026-000123",
+  "tenantId" : "tenant-eu-search",
+  "source" : {
+    "system" : "crawler",
+    "domain" : "example.com",
+    "ingestionType" : "incremental",
+    "region" : "eu"
+  },
+  "title" : "OpenSearch Indexing Best Practices for Large Content Repositories",
+  "subtitle" : "How to structure crawled documents for search, analytics, and reindexing",
+  "url" : "https://example.com/blog/opensearch-indexing-best-practices",
+  "canonicalUrl" : "https://example.com/blog/opensearch-indexing-best-practices",
+  "contentType" : "blog_post",
+  "language" : "en",
+  "publishedAt" : "2026-03-10T09:15:00Z",
+  "updatedAt" : "2026-03-12T11:30:00Z",
+  "crawledAt" : "2026-03-16T08:05:00Z",
+  "author" : {
+    "name" : "Example Editorial Team",
+    "authorType" : "organization",
+    "profileUrl" : "https://example.com/authors/editorial"
+  },
+  "taxonomy" : {
+    "category" : "search",
+    "subcategory" : "opensearch",
+    "tags" : [ "opensearch", "indexing", "search", "schema" ],
+    "topics" : [ "schema-design", "ingestion", "content-modeling" ]
+  },
+  "content" : {
+    "headline" : "OpenSearch Indexing Best Practices for Large Content Repositories",
+    "body" : "This article explains how to design a robust document structure for OpenSearch indexing. It covers metadata modeling, nested objects, enrichment fields, timestamps, validation, and index lifecycle considerations. The goal is to produce a search-friendly and analytics-friendly JSON structure that can be reliably validated before ingestion.",
+    "summary" : "A practical guide for modeling and validating rich web documents before indexing them into OpenSearch.",
+    "sectionCount" : 4,
+    "paragraphs" : [ {
+      "order" : 0,
+      "text" : "Introduction to document modeling for search systems.",
+      "htmlFragment" : "<p>Introduction to document modeling for search systems.</p>"
+    }, {
+      "order" : 1,
+      "text" : "Why metadata quality matters for filtering, ranking, and observability.",
+      "htmlFragment" : "<p>Why metadata quality matters for filtering, ranking, and observability.</p>"
+    }, {
+      "order" : 2,
+      "text" : "How nested structures improve organization while keeping schema discipline.",
+      "htmlFragment" : "<p>How nested structures improve organization while keeping schema discipline.</p>"
+    } ]
+  },
+  "seo" : {
+    "metaTitle" : "OpenSearch Indexing Best Practices",
+    "metaDescription" : "Practical advice for modeling and indexing rich web documents into OpenSearch.",
+    "robots" : "index_follow"
+  },
+  "metrics" : {
+    "wordCount" : 1450,
+    "readingTimeMinutes" : 6.5,
+    "popularityScore" : 83.4,
+    "qualityScore" : 0.91,
+    "sentimentScore" : 0.15
+  },
+  "flags" : {
+    "isActive" : true,
+    "isPublic" : true,
+    "isDeleted" : false,
+    "isPremium" : true
+  },
+  "indexing" : {
+    "indexName" : "web-documents-v1",
+    "pipeline" : "reindex",
+    "indexedAt" : "2026-03-16T20:00:00Z",
+    "version" : 4,
+    "shardRoutingKey" : "tenant-eu-search",
+    "embeddings" : {
+      "model" : "e5-large-v2",
+      "dimensions" : 1024,
+      "vectorStatus" : "created"
+    }
+  },
+  "retention" : {
+    "retentionClass" : "warm",
+    "expiresAt" : "2027-03-16T00:00:00Z"
+  }
+}

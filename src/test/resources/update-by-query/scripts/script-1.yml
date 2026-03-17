@@ -1,0 +1,55 @@
+query:
+  bool:
+    must:
+      - term:
+          tenantId: tenant-eu-search
+      - term:
+          source.domain.keyword: example.com
+      - term:
+          contentType: blog_post
+      - term:
+          flags.isActive: true
+      - term:
+          flags.isDeleted: false
+
+script:
+  lang: painless
+  params:
+    newIndexedAt: "2026-03-16T20:00:00Z"
+    newPipeline: "reindex"
+    popularityDelta: 5.0
+    newRetentionClass: "warm"
+  source: |
+    if (ctx._source.indexing == null) {
+      ctx._source.indexing = [:];
+    }
+
+    if (ctx._source.metrics == null) {
+      ctx._source.metrics = [:];
+    }
+
+    if (ctx._source.flags == null) {
+      ctx._source.flags = [:];
+    }
+
+    if (ctx._source.retention == null) {
+      ctx._source.retention = [:];
+    }
+
+    if (ctx._source.indexing.version == null) {
+      ctx._source.indexing.version = 1;
+    } else {
+      ctx._source.indexing.version = ctx._source.indexing.version + 1;
+    }
+
+    ctx._source.indexing.pipeline = params.newPipeline;
+    ctx._source.indexing.indexedAt = params.newIndexedAt;
+
+    if (ctx._source.metrics.popularityScore == null) {
+      ctx._source.metrics.popularityScore = params.popularityDelta;
+    } else {
+      ctx._source.metrics.popularityScore = ctx._source.metrics.popularityScore + params.popularityDelta;
+    }
+
+    ctx._source.flags.isPremium = true;
+    ctx._source.retention.retentionClass = params.newRetentionClass;

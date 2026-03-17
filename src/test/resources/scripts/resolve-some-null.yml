@@ -1,0 +1,11 @@
+query:
+  bool:
+    must:
+      - match:
+          some.resolved: false
+script:
+  lang: painless
+  source: |
+    Map obj = ctx._source['some'];
+    if (obj == null) return;
+    ctx._source['status'] = 'READY';

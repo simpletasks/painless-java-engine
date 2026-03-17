@@ -1,0 +1,16 @@
+query:
+  bool:
+    must:
+      - term:
+          status: "DONE"
+
+script:
+  lang: painless
+  source: |
+    if (ctx._source.resolution == null) {
+      ctx._source.resolution = "AUTO";
+    }
+
+    if (ctx._source.status == "NEW") {
+      ctx._source.status = "READY";
+    }
